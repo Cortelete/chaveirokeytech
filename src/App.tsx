@@ -6,6 +6,7 @@ import { LocationModal } from "./components/LocationModal";
 import { ReviewModal } from "./components/ReviewModal";
 import { DeveloperModal } from "./components/DeveloperModal";
 import { AboutUsModal } from "./components/AboutUsModal";
+import { ContactChoiceModal } from "./components/ContactChoiceModal";
 import { WhatsAppIcon } from "./components/WhatsAppIcon";
 import { motion } from "motion/react";
 
@@ -58,17 +59,16 @@ export default function App() {
             />
           </motion.div>
 
-          <motion.a
-            href="tel:+5542999009200"
-            target="_top"
+          <motion.button
+            onClick={() => setActiveModal("contactChoice")}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
             className="relative z-30 -mt-8 sm:-mt-12 block text-xl sm:text-3xl font-tech font-bold tracking-tight text-center bg-gradient-to-r from-blue-400 via-sky-200 to-blue-400 bg-clip-text text-transparent animate-[gradient_4s_ease_infinite] bg-[length:200%_auto] hover:opacity-80 transition-opacity"
-            title="Ligar para (42) 99900-9200"
+            title="Opções de Contato"
           >
             (42) 99900-9200
-          </motion.a>
+          </motion.button>
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -127,6 +127,11 @@ export default function App() {
 
       {/* Modals */}
       <AboutUsModal isOpen={activeModal === "about"} onClose={closeModal} />
+      <ContactChoiceModal
+        isOpen={activeModal === "contactChoice"}
+        onClose={closeModal}
+        onWhatsAppClick={() => setActiveModal("contact")}
+      />
       <ContactModal isOpen={activeModal === "contact"} onClose={closeModal} />
       <LocationModal isOpen={activeModal === "location"} onClose={closeModal} />
       <ReviewModal isOpen={activeModal === "review"} onClose={closeModal} />

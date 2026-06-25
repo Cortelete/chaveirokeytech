@@ -178,7 +178,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     e.preventDefault();
     if (!name.trim()) return;
 
-    let message = `Olá! Meu nome é ${name}.\n\nTenho interesse nos seguintes serviços:\n`;
+    let message = `Olá, meu nome é ${name} e vim do site.\n\nTenho interesse nos seguintes serviços:\n`;
 
     if (selectedServices.size > 0) {
       servicesList.forEach((service) => {
@@ -187,7 +187,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         }
       });
     } else {
-      message += `Gostaria de mais informações sobre seus serviços.\n`;
+      message = `Olá, meu nome é ${name} e vim do site.\n\nGostaria de mais informações sobre seus serviços.\n`;
     }
 
     const encoded = encodeURIComponent(message);
