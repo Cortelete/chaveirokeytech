@@ -14,8 +14,10 @@ export function LocationModal({ isOpen, onClose }: LocationModalProps) {
         <div className="flex items-start space-x-3 text-slate-300 bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
           <MapPin className="text-blue-400 mt-1 flex-shrink-0" size={20} />
           <p className="text-sm leading-relaxed">
-            Av. Gen. Carlos Cavalcanti, 2879<br />
-            Uvaranas – Ponta Grossa/PR<br />
+            Av. Gen. Carlos Cavalcanti, 2879
+            <br />
+            Uvaranas – Ponta Grossa/PR
+            <br />
             CEP: 85025-000
           </p>
         </div>

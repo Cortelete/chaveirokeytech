@@ -7,31 +7,113 @@ interface ContactModalProps {
 }
 
 const servicesList = [
-  { id: "comum", label: "Cópia de chave comum", desc: "Serviço de cópia de chaves tradicionais" },
-  { id: "upgrade", label: "Upgrade de chave tradicional", desc: "Faça uma modernização em sua chave e deixe ela nos modelos atuais" },
-  { id: "jeep", label: "Linha Jeep", desc: "Cópia e confecção de chave codificada" },
-  { id: "injecao", label: "Reparo Central de Injeção Eletrônica", desc: "Reparo / Reset / Decode de ECU Linha Leve nacionais e importados" },
-  { id: "painel", label: "Painel Automotivo", desc: "Reparo, substituição de componentes, recuperação de arquivo de memória, ajuste de hodômetros nacionais e importados" },
-  { id: "ignicao", label: "Reparo Ignição Automotiva", desc: "Reparo de ignição e trocas de comutadores nacionais e importados" },
-  { id: "cilindro", label: "Reparo Cilindro de Fechadura de Porta Automotiva", desc: "Reparo e substituição de excêntricos nacionais e importados" },
-  { id: "honda", label: "Linha Honda", desc: "Cópia e confecção de chaves codificadas" },
-  { id: "renault", label: "Linha Renault", desc: "Cópia e confecção de chaves codificadas" },
-  { id: "abertura", label: "Abertura Automotiva", desc: "Abertura de carros nacionais e importados" },
-  { id: "peugeot", label: "Linha Peugeot", desc: "Cópia e confecção de chave codificada" },
-  { id: "citroen", label: "Linha Citroen", desc: "Cópia e Confecção de chave codificada" },
-  { id: "ford", label: "Linha Ford", desc: "Copias e confecção de chave codificada e programação de telecomando" },
-  { id: "chevrolet", label: "Linha Chevrolet", desc: "Cópia e Confecção de chave codificada" },
-  { id: "telecomandos", label: "Controles e Telecomandos Automotivos", desc: "Reparo da placa, troca de bateria, limpeza" },
-  { id: "byd", label: "Linha BYD", desc: "Chaves e confecção de chaves codificadas" },
-  { id: "gwm", label: "Linha GWM", desc: "Copia e confecção de chave codificadas" },
-  { id: "casamento", label: "Casamento central/painel", desc: "Ajuste quando é necessário a troca de um dos dois componentes" },
-  { id: "fiat", label: "Linha Fiat", desc: "Cópia e confecção de chaves codificadas" },
-  { id: "volkswagen", label: "Linha Volkswagen", desc: "Cópia e confecção de chaves codificadas" },
+  {
+    id: "comum",
+    label: "Cópia de chave comum",
+    desc: "Serviço de cópia de chaves tradicionais",
+  },
+  {
+    id: "upgrade",
+    label: "Upgrade de chave tradicional",
+    desc: "Faça uma modernização em sua chave e deixe ela nos modelos atuais",
+  },
+  {
+    id: "jeep",
+    label: "Linha Jeep",
+    desc: "Cópia e confecção de chave codificada",
+  },
+  {
+    id: "injecao",
+    label: "Reparo Central de Injeção Eletrônica",
+    desc: "Reparo / Reset / Decode de ECU Linha Leve nacionais e importados",
+  },
+  {
+    id: "painel",
+    label: "Painel Automotivo",
+    desc: "Reparo, substituição de componentes, recuperação de arquivo de memória, ajuste de hodômetros nacionais e importados",
+  },
+  {
+    id: "ignicao",
+    label: "Reparo Ignição Automotiva",
+    desc: "Reparo de ignição e trocas de comutadores nacionais e importados",
+  },
+  {
+    id: "cilindro",
+    label: "Reparo Cilindro de Fechadura de Porta Automotiva",
+    desc: "Reparo e substituição de excêntricos nacionais e importados",
+  },
+  {
+    id: "honda",
+    label: "Linha Honda",
+    desc: "Cópia e confecção de chaves codificadas",
+  },
+  {
+    id: "renault",
+    label: "Linha Renault",
+    desc: "Cópia e confecção de chaves codificadas",
+  },
+  {
+    id: "abertura",
+    label: "Abertura Automotiva",
+    desc: "Abertura de carros nacionais e importados",
+  },
+  {
+    id: "peugeot",
+    label: "Linha Peugeot",
+    desc: "Cópia e confecção de chave codificada",
+  },
+  {
+    id: "citroen",
+    label: "Linha Citroen",
+    desc: "Cópia e Confecção de chave codificada",
+  },
+  {
+    id: "ford",
+    label: "Linha Ford",
+    desc: "Copias e confecção de chave codificada e programação de telecomando",
+  },
+  {
+    id: "chevrolet",
+    label: "Linha Chevrolet",
+    desc: "Cópia e Confecção de chave codificada",
+  },
+  {
+    id: "telecomandos",
+    label: "Controles e Telecomandos Automotivos",
+    desc: "Reparo da placa, troca de bateria, limpeza",
+  },
+  {
+    id: "byd",
+    label: "Linha BYD",
+    desc: "Chaves e confecção de chaves codificadas",
+  },
+  {
+    id: "gwm",
+    label: "Linha GWM",
+    desc: "Copia e confecção de chave codificadas",
+  },
+  {
+    id: "casamento",
+    label: "Casamento central/painel",
+    desc: "Ajuste quando é necessário a troca de um dos dois componentes",
+  },
+  {
+    id: "fiat",
+    label: "Linha Fiat",
+    desc: "Cópia e confecção de chaves codificadas",
+  },
+  {
+    id: "volkswagen",
+    label: "Linha Volkswagen",
+    desc: "Cópia e confecção de chaves codificadas",
+  },
 ];
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [name, setName] = useState("");
-  const [selectedServices, setSelectedServices] = useState<Set<string>>(new Set());
+  const [selectedServices, setSelectedServices] = useState<Set<string>>(
+    new Set(),
+  );
 
   const toggleService = (id: string) => {
     const newSelected = new Set(selectedServices);
@@ -48,9 +130,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (!name.trim()) return;
 
     let message = `Olá! Meu nome é ${name}.\n\nTenho interesse nos seguintes serviços:\n`;
-    
+
     if (selectedServices.size > 0) {
-      servicesList.forEach(service => {
+      servicesList.forEach((service) => {
         if (selectedServices.has(service.id)) {
           message += `- ${service.label}\n`;
         }
@@ -66,7 +148,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Fale Conosco">
-      <form onSubmit={handleSubmit} className="flex flex-col h-[70vh] sm:h-auto sm:max-h-[80vh]">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col h-[70vh] sm:h-auto sm:max-h-[80vh]"
+      >
         <div className="flex-shrink-0 pb-4">
           <label className="block text-sm font-medium text-slate-300 mb-1">
             Seu Nome
@@ -80,14 +165,17 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             placeholder="Digite seu nome..."
           />
         </div>
-        
+
         <div className="flex-1 overflow-y-auto pr-2 pb-4 space-y-3 custom-scrollbar">
           <p className="text-sm font-medium text-slate-300 sticky top-0 bg-slate-900 py-2 z-10 border-b border-slate-800">
             Selecione os serviços de interesse:
           </p>
-          
+
           {servicesList.map((service) => (
-            <label key={service.id} className="flex items-start space-x-3 cursor-pointer group p-2 rounded-lg hover:bg-slate-800/50 transition-colors">
+            <label
+              key={service.id}
+              className="flex items-start space-x-3 cursor-pointer group p-2 rounded-lg hover:bg-slate-800/50 transition-colors"
+            >
               <div className="relative flex items-center mt-0.5">
                 <input
                   type="checkbox"
@@ -102,7 +190,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   stroke="currentColor"
                   strokeWidth={3}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               </div>
               <div className="flex flex-col">

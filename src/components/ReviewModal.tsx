@@ -13,11 +13,14 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
   const [hoveredRating, setHoveredRating] = useState(0);
   const [showFeedbackForm, setShowFeedbackForm] = useState(false);
   const [feedback, setFeedback] = useState("");
-  
+
   const handleStarClick = (selectedRating: number) => {
     setRating(selectedRating);
     if (selectedRating === 5) {
-      window.open("https://search.google.com/local/writereview?placeid=ChIJKXfvyQgb6JQRFqarfTx3TkM", "_blank");
+      window.open(
+        "https://search.google.com/local/writereview?placeid=ChIJKXfvyQgb6JQRFqarfTx3TkM",
+        "_blank",
+      );
       onClose();
     } else {
       setShowFeedbackForm(true);
@@ -31,17 +34,17 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
     form.method = "POST";
     form.action = "https://formsubmit.co/your-email@example.com"; // Placeholder email as per request
     form.target = "_blank";
-    
+
     const input = document.createElement("input");
     input.type = "hidden";
     input.name = "Feedback";
     input.value = `Nota: ${rating} estrelas\nMotivo: ${feedback}`;
     form.appendChild(input);
-    
+
     document.body.appendChild(form);
     form.submit();
     document.body.removeChild(form);
-    
+
     onClose();
   };
 
@@ -99,8 +102,8 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
             className="space-y-4"
           >
             <p className="text-slate-300 text-sm font-medium">
-              Poxa, sentimos muito por não atingir 5 estrelas. 
-              Poderia nos contar o que houve e como podemos melhorar?
+              Poxa, sentimos muito por não atingir 5 estrelas. Poderia nos
+              contar o que houve e como podemos melhorar?
             </p>
             <textarea
               required

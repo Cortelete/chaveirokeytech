@@ -48,9 +48,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
                 <X size={20} />
               </button>
             )}
-            <div className="p-6">
-              {children}
-            </div>
+            <div className="p-6">{children}</div>
           </motion.div>
         </motion.div>
       )}

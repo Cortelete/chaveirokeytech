@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "./Modal";
-import { Instagram, MessageCircle } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 interface DeveloperModalProps {
   isOpen: boolean;
@@ -26,7 +27,7 @@ export function DeveloperModal({ isOpen, onClose }: DeveloperModalProps) {
         <p className="text-sm text-slate-300">
           Você está prestes a entrar em contato com o desenvolvedor deste site.
         </p>
-        
+
         <a
           href="https://www.instagram.com/inteligenciarte.ia/"
           target="_blank"
@@ -42,7 +43,9 @@ export function DeveloperModal({ isOpen, onClose }: DeveloperModalProps) {
             <div className="w-full border-t border-slate-700"></div>
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="bg-slate-900 px-2 text-slate-400">Quer um site incrível como esse? Fale comigo! 🚀</span>
+            <span className="bg-slate-900 px-2 text-slate-400">
+              Quer um site incrível como esse? Fale comigo! 🚀
+            </span>
           </div>
         </div>
 
@@ -60,12 +63,12 @@ export function DeveloperModal({ isOpen, onClose }: DeveloperModalProps) {
               placeholder="Digite seu nome..."
             />
           </div>
-          
+
           <button
             type="submit"
             className="w-full flex items-center justify-center space-x-2 bg-green-500 text-white font-medium rounded-lg px-4 py-3 hover:bg-green-600 transition-all shadow-lg shadow-green-500/25 active:scale-[0.98]"
           >
-            <MessageCircle size={20} />
+            <WhatsAppIcon size={20} />
             <span>Enviar WhatsApp</span>
           </button>
         </form>
