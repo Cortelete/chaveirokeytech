@@ -1,0 +1,6 @@
+{
+  "name": "Chaveiro Key Tech",
+  "description": "Site estilo link-na-bio elegante e moderno para o Chaveiro Key Tech, com links de redes sociais, localização e contato via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
