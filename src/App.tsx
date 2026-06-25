@@ -46,7 +46,7 @@ export default function App() {
         {/* Profile Section */}
         <div className="flex flex-col items-center mb-4 sm:mb-8 relative">
           <motion.div
-            className={`w-24 h-24 sm:w-36 sm:h-36 rounded-full flex items-center justify-center cursor-pointer relative z-20 ${logoClicked ? "animate-[coin-spin_1s_ease-in-out_forwards]" : ""}`}
+            className={`w-64 h-64 sm:w-80 sm:h-80 rounded-full flex items-center justify-center cursor-pointer relative z-20 ${logoClicked ? "animate-[coin-spin_1s_ease-in-out_forwards]" : ""}`}
             onClick={handleLogoClick}
             whileHover={!logoClicked ? { scale: 1.05 } : {}}
           >
@@ -58,14 +58,17 @@ export default function App() {
             />
           </motion.div>
 
-          <motion.h1
+          <motion.a
+            href="tel:+5542999009200"
+            target="_top"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="mt-2 sm:mt-4 text-xl sm:text-3xl font-tech font-bold tracking-tight text-center bg-gradient-to-r from-blue-400 via-sky-200 to-blue-400 bg-clip-text text-transparent animate-[gradient_4s_ease_infinite] bg-[length:200%_auto]"
+            className="relative z-30 -mt-8 sm:-mt-12 block text-xl sm:text-3xl font-tech font-bold tracking-tight text-center bg-gradient-to-r from-blue-400 via-sky-200 to-blue-400 bg-clip-text text-transparent animate-[gradient_4s_ease_infinite] bg-[length:200%_auto] hover:opacity-80 transition-opacity"
+            title="Ligar para (42) 99900-9200"
           >
-            CHAVEIRO KEYTECH
-          </motion.h1>
+            (42) 99900-9200
+          </motion.a>
 
           <motion.div
             initial={{ opacity: 0 }}
