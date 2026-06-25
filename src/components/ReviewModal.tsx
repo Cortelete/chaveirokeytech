@@ -67,7 +67,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
             className="flex flex-col items-center py-6 space-y-6"
           >
             <p className="text-slate-300 text-center font-medium">
-              Como foi sua experiência com a Key Tech?
+              Como foi sua experiência com a Keytech?
             </p>
             <div className="flex space-x-2">
               {[1, 2, 3, 4, 5].map((star) => (

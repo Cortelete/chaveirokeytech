@@ -11,7 +11,7 @@ export function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
     <Modal isOpen={isOpen} onClose={onClose} title="Quem Somos">
       <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
         <p>
-          A <span className="text-blue-400 font-semibold">Chaveiro Key Tech</span> é referência em serviços automotivos em Ponta Grossa. 
+          A <span className="text-blue-400 font-semibold">Chaveiro Keytech</span> é referência em serviços automotivos em Ponta Grossa. 
           Especializada em tecnologia embarcada, oferecemos soluções completas para a segurança e funcionamento do seu veículo.
         </p>
         <p>
