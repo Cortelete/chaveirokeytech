@@ -17,10 +17,20 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
   const handleStarClick = (selectedRating: number) => {
     setRating(selectedRating);
     if (selectedRating === 5) {
-      window.open(
-        "https://search.google.com/local/writereview?placeid=ChIJoTxGXgMb6JQRK9o42kIrNvc",
-        "_blank",
-      );
+      const reviewUrl =
+        "https://search.google.com/local/writereview?placeid=ChIJoTxGXgMb6JQRK9o42kIrNvc";
+      const win = window.open(reviewUrl, "_blank", "noopener,noreferrer");
+      if (!win || win.closed || typeof win.closed === "undefined") {
+        const a = document.createElement("a");
+        a.href = reviewUrl;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          if (document.body.contains(a)) document.body.removeChild(a);
+        }, 100);
+      }
       onClose();
     } else {
       setShowFeedbackForm(true);

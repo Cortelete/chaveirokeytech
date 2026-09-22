@@ -197,6 +197,23 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     }
   };
 
+  const openWhatsApp = (url: string) => {
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    if (!win || win.closed || typeof win.closed === "undefined") {
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        if (document.body.contains(a)) {
+          document.body.removeChild(a);
+        }
+      }, 100);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) return;
@@ -214,7 +231,17 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     }
 
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/5542999009200?text=${encoded}`, "_blank");
+    openWhatsApp(`https://api.whatsapp.com/send?phone=5542999009200&text=${encoded}`);
+    onClose();
+  };
+
+  const handleDirectWhatsApp = () => {
+    const defaultMsg = encodeURIComponent(
+      "Olá! Vim através do site e gostaria de um atendimento.",
+    );
+    openWhatsApp(
+      `https://api.whatsapp.com/send?phone=5542999009200&text=${defaultMsg}`,
+    );
     onClose();
   };
 
@@ -222,9 +249,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     <Modal isOpen={isOpen} onClose={onClose} title="Fale Conosco">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col h-[70vh] sm:h-auto sm:max-h-[80vh]"
+        className="flex flex-col flex-1 min-h-0 h-full max-h-[75vh]"
       >
-        <div className="flex-shrink-0 pb-4">
+        <div className="flex-shrink-0 pb-3">
           <label className="block text-sm font-medium text-slate-300 mb-1">
             Seu Nome
           </label>
@@ -233,13 +260,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+            className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm sm:text-base"
             placeholder="Digite seu nome..."
           />
         </div>
 
-        <div className="flex-1 overflow-y-auto pr-2 pb-4 space-y-3 custom-scrollbar">
-          <p className="text-sm font-medium text-slate-300 sticky top-0 bg-slate-900 py-2 z-10 border-b border-slate-800">
+        <div className="flex-1 min-h-0 overflow-y-auto pr-2 pb-3 space-y-2.5 custom-scrollbar">
+          <p className="text-xs sm:text-sm font-medium text-slate-300 sticky top-0 bg-slate-900 py-1.5 z-10 border-b border-slate-800">
             Selecione os serviços de interesse:
           </p>
 
@@ -307,12 +334,19 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           ))}
         </div>
 
-        <div className="flex-shrink-0 pt-4 border-t border-slate-800">
+        <div className="flex-shrink-0 pt-3 border-t border-slate-800 space-y-2">
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-sky-500 text-white font-medium rounded-lg px-4 py-3 hover:from-blue-500 hover:to-sky-400 transition-all shadow-lg shadow-blue-500/25 active:scale-[0.98]"
+            className="w-full bg-gradient-to-r from-blue-600 to-sky-500 text-white font-medium rounded-lg px-4 py-3 hover:from-blue-500 hover:to-sky-400 transition-all shadow-lg shadow-blue-500/25 active:scale-[0.98] text-sm sm:text-base flex items-center justify-center space-x-2"
           >
-            Confirmar e Enviar
+            <span>Confirmar e Enviar para WhatsApp</span>
+          </button>
+          <button
+            type="button"
+            onClick={handleDirectWhatsApp}
+            className="w-full text-center text-xs text-slate-400 hover:text-blue-300 py-1 transition-colors"
+          >
+            Ou clique aqui para falar direto sem preencher o formulário →
           </button>
         </div>
       </form>
