@@ -84,6 +84,7 @@ const servicesList = [
     id: "ford",
     label: "Linha Ford",
     desc: "Copias e confecção de chave codificada e programação de telecomando",
+    image: "/ford.jpg",
   },
   {
     id: "chevrolet",
@@ -95,11 +96,13 @@ const servicesList = [
     id: "telecomandos",
     label: "Controles e Telecomandos Automotivos",
     desc: "Reparo da placa, troca de bateria, limpeza",
+    image: "/telecomandos.jpg",
   },
   {
     id: "byd",
     label: "Linha BYD",
     desc: "Chaves e confecção de chaves codificadas",
+    image: "/byd.jpg",
   },
   {
     id: "gwm",
@@ -172,6 +175,26 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       newSelected.add(id);
     }
     setSelectedServices(newSelected);
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const target = e.currentTarget;
+    if (target.dataset.triedFallback) {
+      target.style.display = "none";
+      return;
+    }
+    target.dataset.triedFallback = "true";
+    if (target.src.includes("telecomandos.jpg")) {
+      target.src = "/controle.jpg";
+    } else if (target.src.includes("telecomandos.png")) {
+      target.src = "/controle.png";
+    } else if (target.src.endsWith(".jpg")) {
+      target.src = target.src.replace(/\.jpg$/, ".png");
+    } else if (target.src.endsWith(".png")) {
+      target.src = target.src.replace(/\.png$/, ".jpg");
+    } else {
+      target.style.display = "none";
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -262,6 +285,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     <img
                       src={service.image}
                       alt={service.label}
+                      onError={handleImageError}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover/image:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center">
@@ -339,6 +363,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     <img
                       src={servicesList[carouselIndex].image}
                       alt={servicesList[carouselIndex].label}
+                      onError={handleImageError}
                       className="max-w-full max-h-[50vh] object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
                     />
                   </div>

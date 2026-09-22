@@ -89,7 +89,7 @@ export default function App() {
             title="Siga no Instagram"
             onClick={() =>
               window.open(
-                "https://www.instagram.com/chaveiro_keytech/",
+                "https://www.instagram.com/central_das_chaves_oficinas/",
                 "_blank",
               )
             }
