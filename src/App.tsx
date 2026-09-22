@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Instagram, MapPin, Star, Wrench } from "lucide-react";
+import { Instagram, MapPin, Star } from "lucide-react";
 import { LinkButton } from "./components/LinkButton";
 import { ContactModal } from "./components/ContactModal";
 import { LocationModal } from "./components/LocationModal";
@@ -47,7 +47,7 @@ export default function App() {
         {/* Profile Section */}
         <div className="flex flex-col items-center mb-4 sm:mb-8 relative">
           <motion.div
-            className={`w-44 h-44 sm:w-56 sm:h-56 rounded-full flex items-center justify-center cursor-pointer relative z-20 ${logoClicked ? "animate-[coin-spin_1s_ease-in-out_forwards]" : ""}`}
+            className={`-mt-4 sm:-mt-6 w-44 h-44 sm:w-56 sm:h-56 rounded-full flex items-center justify-center cursor-pointer relative z-20 ${logoClicked ? "animate-[coin-spin_1s_ease-in-out_forwards]" : ""}`}
             onClick={handleLogoClick}
             whileHover={!logoClicked ? { scale: 1.05 } : {}}
           >
@@ -64,7 +64,7 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="relative z-30 -mt-2 sm:-mt-3 block text-xl sm:text-3xl font-tech font-bold tracking-tight text-center bg-gradient-to-r from-blue-400 via-sky-200 to-blue-400 bg-clip-text text-transparent animate-[gradient_4s_ease_infinite] bg-[length:200%_auto] hover:opacity-80 transition-opacity"
+            className="relative z-30 mt-0 sm:mt-1 block text-xl sm:text-3xl font-tech font-bold tracking-tight text-center bg-gradient-to-r from-blue-400 via-sky-200 to-blue-400 bg-clip-text text-transparent animate-[gradient_4s_ease_infinite] bg-[length:200%_auto] hover:opacity-80 transition-opacity"
             title="Opções de Contato"
           >
             (42) 99900-9200
@@ -74,14 +74,11 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-1 sm:mt-2 text-center text-slate-300 text-xs sm:text-base space-y-0.5 sm:space-y-1"
+            className="mt-1 sm:mt-2 text-center text-slate-400 text-[11px] sm:text-xs tracking-wide space-y-0.5 sm:space-y-1"
           >
-            <p className="flex items-center justify-center space-x-1">
-              <Wrench size={14} className="text-blue-400" />{" "}
-              <span>Especialista em chaves codificadas e imobilizador</span>
-            </p>
-            <p>🔧 Reparo de painel e ECU</p>
-            <p>🚗 Atendimento automotivo</p>
+            <p>Especialista em chaves codificadas e imobilizador</p>
+            <p>Reparo de painel e ECU</p>
+            <p>Atendimento automotivo</p>
           </motion.div>
         </div>
 
