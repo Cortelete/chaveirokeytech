@@ -111,7 +111,7 @@ export default function App() {
           >
             <p>Especialista em chaves codificadas e imobilizador</p>
             <p>Reparo de painel e ECU</p>
-            <p>Atendimento automotivo</p>
+            <p>Atendimento automotivo e residencial</p>
           </motion.div>
 
           {/* Neon Divider */}
