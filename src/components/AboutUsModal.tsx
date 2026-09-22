@@ -12,7 +12,9 @@ export function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
       <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
         <p>
           A{" "}
-          <span className="text-blue-400 font-semibold">Chaveiro Keytech</span>{" "}
+          <span className="text-blue-400 font-semibold">
+            Central das Chaves Oficinas
+          </span>{" "}
           é referência em serviços automotivos em Ponta Grossa. Especializada em
           tecnologia embarcada, oferecemos soluções completas para a segurança e
           funcionamento do seu veículo.

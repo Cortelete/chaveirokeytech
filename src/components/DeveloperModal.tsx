@@ -15,7 +15,7 @@ export function DeveloperModal({ isOpen, onClose }: DeveloperModalProps) {
     e.preventDefault();
     if (!name.trim()) return;
 
-    const message = `Olá, vi o link da CHAVEIRO KEYTECH e quero um site igual!\nMeu nome é ${name}.`;
+    const message = `Olá, vi o link da Central das Chaves Oficinas e quero um site igual!\nMeu nome é ${name}.`;
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/5541988710303?text=${encoded}`, "_blank");
     onClose();

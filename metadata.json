@@ -1,6 +1,6 @@
 {
-  "name": "Chaveiro Keytech",
-  "description": "Site estilo link-na-bio elegante e moderno para o Chaveiro Keytech, com links de redes sociais, localização e contato via WhatsApp.",
+  "name": "Central das Chaves Oficinas",
+  "description": "Site estilo link-na-bio elegante e moderno para a Central das Chaves Oficinas, com links de redes sociais, localização e contato via WhatsApp.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

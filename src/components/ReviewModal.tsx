@@ -18,7 +18,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
     setRating(selectedRating);
     if (selectedRating === 5) {
       window.open(
-        "https://search.google.com/local/writereview?placeid=ChIJKXfvyQgb6JQRFqarfTx3TkM",
+        "https://search.google.com/local/writereview?placeid=ChIJoTxGXgMb6JQRK9o42kIrNvc",
         "_blank",
       );
       onClose();
@@ -70,7 +70,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
             className="flex flex-col items-center py-6 space-y-6"
           >
             <p className="text-slate-300 text-center font-medium">
-              Como foi sua experiência com a Keytech?
+              Como foi sua experiência com a Central das Chaves Oficinas?
             </p>
             <div className="flex space-x-2">
               {[1, 2, 3, 4, 5].map((star) => (
